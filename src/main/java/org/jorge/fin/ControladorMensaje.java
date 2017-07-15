@@ -6,7 +6,9 @@
 package org.jorge.fin;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,14 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin
 public class ControladorMensaje {
-    @Autowired RepositorioMensaje rm;
-    
-    @RequestMapping(value="/guardar-mensaje",method=RequestMethod.GET, headers={"Accept=text/html"})
-    
-    public String guardarMensaje(){
+//caso post 
+    @RequestMapping(value="/mensaje", method=RequestMethod.POST, headers={"application/json"})
+    public Estatus guardar(@RequestBody String json){
+        System.out.println(json);
         
-        rm.save(new Mensaje("Mi primer registro en mongo"));
-        return "Mensaje guardado";
+        Estatus e=new Estatus();
+        e.setSuccess(true);
+        return e;
     }
-    
 }
