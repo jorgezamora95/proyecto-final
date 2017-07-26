@@ -5,8 +5,10 @@
  */
 package org.jorge.fin;
 
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class ControladorUsuario {
     @Autowired RepositorioUsuario repoUsuario;
-    @RequestMapping(value="/usuario", method=RequestMethod.GET, headers={"Accept=text/html"})
+   /* @RequestMapping(value="/usuario", method=RequestMethod.GET, headers={"Accept=text/html"})
     public String guardarUsuario(){
         System.out.println("antes");
         Direccion d=new Direccion("calle 21", "ecatepec",121212l);
@@ -27,6 +29,24 @@ public class ControladorUsuario {
        repoUsuario.save(u);
        
         return "usuario guardado";
-    }
+    }*/
+    @RequestMapping(value="/usuario/{rfc}",
+            method=RequestMethod.GET, headers={"Accept=application/json"})
+
+    public Usuario buscarporid (@PathVariable String rfc){
+
+        Usuario u=repoUsuario.findOne(rfc);
+        return u;
+     
+
+} 
+    /*
+    @RequestMapping(value="/usuario", method=RequestMethod.GET,
+            headers={"Accept=Application/json"})
     
+    public ArrayList<Usuario> buscartodos(){
+        
+        return (ArrayList<Usuario>) repoUsuario.findAll();
+    }
+    */
 }
