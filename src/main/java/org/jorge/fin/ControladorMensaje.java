@@ -24,19 +24,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControladorMensaje {
 //caso post 
      @Autowired RepositorioMensaje repoMensaje;
-    @RequestMapping(value="/mensaje", method=RequestMethod.POST, headers={"application/json"})
+   /* @RequestMapping(value="/mensaje", method=RequestMethod.POST, headers={"application/json"})
     public Estatus guardar(@RequestBody String json){
         System.out.println(json);
         
         Estatus e=new Estatus();
         e.setSuccess(true);
         return e;
-    }
-    @RequestMapping(value="/mensaje", method = RequestMethod.GET, headers = {"Accept=application/json"})
+    }*/
+    /*@RequestMapping(value="/mensaje", method = RequestMethod.GET, headers = {"Accept=application/json"})
     public ArrayList<Mensaje> getTodos(){
          
         return (ArrayList<Mensaje>) repoMensaje.findAll();
-    }
+    }*/
     @RequestMapping(value="/mensaje", method=RequestMethod.PUT, headers = {"Accept=application/json"})
     public Estatus actualizar(@RequestBody String json)throws Exception{
         Estatus e=new Estatus();

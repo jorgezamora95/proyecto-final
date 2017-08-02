@@ -20,8 +20,8 @@ public class FinApplication implements CommandLineRunner{
          //tratare de probar el 1
                // Direccion d=new Direccion("nada","sanborns",123l);
                // Usuario u=new Usuario("1","Jorge","jorgezamora@gmail.com",d);
-               Usuario buscarporid =repoU.findOne("1");
-               System.out.println(buscarporid.getNombre()+ buscarporid.getMail());
+             //  Usuario buscarporid =repoU.findOne("1");
+              // System.out.println(buscarporid.getNombre()+ buscarporid.getMail());
 
          
                 

@@ -20,16 +20,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin
 public class ControladorUsuario {
-    @Autowired RepositorioUsuario repoUsuario;
-   /* @RequestMapping(value="/usuario", method=RequestMethod.GET, headers={"Accept=text/html"})
+   @Autowired RepositorioUsuario repoUsuario;
+   
+   @RequestMapping(value="/usuario", method=RequestMethod.GET, headers={"Accept=text/html"})
     public String guardarUsuario(){
         System.out.println("antes");
         Direccion d=new Direccion("calle 21", "ecatepec",121212l);
-        Usuario u=new Usuario("1","Jorge","sssdasdasd",d);
+        Usuario u=new Usuario("2","Jorge","sssdasdasd",d);
        repoUsuario.save(u);
        
         return "usuario guardado";
-    }*/
+
+    }
+
     @RequestMapping(value="/usuario/{rfc}",
             method=RequestMethod.GET, headers={"Accept=application/json"})
 
@@ -39,14 +42,19 @@ public class ControladorUsuario {
         return u;
      
 
-} 
-    /*
+} /*
+    
     @RequestMapping(value="/usuario", method=RequestMethod.GET,
             headers={"Accept=Application/json"})
     
     public ArrayList<Usuario> buscartodos(){
         
         return (ArrayList<Usuario>) repoUsuario.findAll();
-    }
-    */
+    }/*
+    @RequestMapping(value="/usuario", method=RequestMethod.PUT,
+            headers={"Accept=text/html"})
+    public String actualizar(){
+        
+    }*/
+    
 }
